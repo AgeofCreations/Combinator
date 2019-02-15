@@ -94,5 +94,5 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "фраз"))
         self.pushButton_3.setText(_translate("MainWindow", "Очистить поля"))
         self.menu.setTitle(_translate("MainWindow", "1"))
-        self.action_4.setText(_translate("MainWindow", "фывфыв"))
+        self.action_4.setText(_translate("Combinator", "фывфыв"))
 
