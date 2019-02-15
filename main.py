@@ -39,26 +39,22 @@ class MyCheckUrlThread(QThread):
         fulllen = len(self.list1) + len(self.list2) + len(self.list3) + len(self.list4) + len(self.list5) +\
         len(self.list6) + len(self.list7) + len(self.list8) + len(self.list9) + len(self.list10) + len(self.list11) +\
             len(self.list12)
-        #fulllen = fullen ** 12
-        if (fulllen / 12) ** 12 < 10000000:
-            results = ['{} {} {} {} {} {} {} {} {} {} {} {}'.format(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12)
-                       for x1 in self.list1
-                            for x2 in self.list2
-                                for x3 in self.list3
-                                    for x4 in self.list4
-                                        for x5 in self.list5
-                                            for x6 in self.list6
-                                                for x7 in self.list7
-                                                    for x8 in self.list8
-                                                        for x9 in self.list9
-                                                            for x10 in self.list10
-                                                                for x11 in self.list11
-                                                                    for x12 in self.list12]
-            with open("results.txt", "w") as file:
-                print(*results, file=file, sep="\n")
-            self.result.emit('Готово. Результат сохранён в файл. Всего получилось: '+ str(len(results)) + ' значений')
-        else:
-            self.result.emit('Невозможно создать такое количество результатов. Текущее значение:' + str(int((fulllen / 12) ** 12)))
+        results = ['{} {} {} {} {} {} {} {} {} {} {} {}'.format(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12)
+                    for x1 in self.list1
+                        for x2 in self.list2
+                            for x3 in self.list3
+                                for x4 in self.list4
+                                    for x5 in self.list5
+                                        for x6 in self.list6
+                                            for x7 in self.list7
+                                                for x8 in self.list8
+                                                    for x9 in self.list9
+                                                        for x10 in self.list10
+                                                            for x11 in self.list11
+                                                                for x12 in self.list12]
+        with open("results.txt", "w") as file:
+            print(*results, file=file, sep="\n")
+        self.result.emit('Готово. Результат сохранён в файл. Всего получилось: '+ str(len(results)) + ' значений')
 
 class FastLenCalculating(QThread):
     fulllen_val = pyqtSignal(str)
