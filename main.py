@@ -53,7 +53,7 @@ class MyCheckUrlThread(QThread):
                                                             for x10 in self.list10
                                                                 for x11 in self.list11
                                                                     for x12 in self.list12]
-            with open("results.txt", "w") as file:
+            with open("results.txt", "w",encoding="utf-8") as file:
                 print(*results, file=file, sep="\n")
             self.result.emit('Готово. Результат сохранён в файл. Всего получилось: '+ str(len(results)) + ' значений')
         else:
